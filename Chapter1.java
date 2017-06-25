@@ -55,3 +55,19 @@
         
         return true;
     }
+
+//1.3
+   public static String add20(String s1, int len) {
+    
+        StringBuilder sb = new StringBuilder();
+        
+        for (int i=0; i < s1.length(); i++) {
+            if(s1.charAt(i) == ' ') {
+                sb.append("%20");
+            } else {
+                sb.append(s1.charAt(i));
+            }
+        }
+        
+        return sb.toString();
+    }

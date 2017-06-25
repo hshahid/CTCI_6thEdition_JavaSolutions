@@ -7,33 +7,25 @@
 
 class Solution {
     
-    public static boolean checkPerm(String s1, String s2) {
-        //length
-        //add to int array
-        //if element is smaller than 0, then return false
-        int[] intArray = new int[128];
+    public static String add20(String s1, int len) {
+    
+        StringBuilder sb = new StringBuilder();
         
-        if(s1.length() != s2.length()) { return false; }
-        
-        for (int i=0; i<s1.length(); i++) {
-            intArray[s1.charAt(i)] += 1;
-        }
-        
-        for (int i=0; i<s2.length(); i++) {
-                intArray[s2.charAt(i)] =  intArray[s2.charAt(i)] - 1;
-            if (intArray[s2.charAt(i)] < 0) {
-                return false;
+        for (int i=0; i < s1.length(); i++) {
+            if(s1.charAt(i) == ' ') {
+                sb.append("%20");
+            } else {
+                sb.append(s1.charAt(i));
             }
-                                  
         }
         
-        return true;
+        return sb.toString();
     }
         
     
   public static void main(String[] args) {
-      String s1 = "ratt";
+      String s1 = "rat poison is ew ";
       String s2 = "ttar";
-      System.out.println(checkPerm(s1, s2));
+      System.out.println(add20(s1, 13));
   }
 }
