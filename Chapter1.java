@@ -4,7 +4,7 @@
 
 
 //1.1
-
+//a. With Hashtable
 public static boolean isUnique(String s) {
     Set<Character> set = new HashSet<Character>();
     
@@ -17,4 +17,17 @@ public static boolean isUnique(String s) {
     }
     
     return true;
-  }
+}
+
+//b. with array
+public static boolean isUnique(String s1) {
+    
+    boolean[] bool = new boolean[128];
+    
+    for (int i=0; i<s1.length();i++) {
+        if(bool[s1.charAt(i)] == true) { return false; } else {
+            bool[s1.charAt(i)] = true;
+        }
+    }
+        return true;
+}
