@@ -7,25 +7,30 @@
 
 class Solution {
     
-    public static String add20(String s1, int len) {
-    
-        StringBuilder sb = new StringBuilder();
+    public static Boolean isPerm(String s1) {
+        int[] intArray = new int[128];
+        int count = 0;
         
-        for (int i=0; i < s1.length(); i++) {
-            if(s1.charAt(i) == ' ') {
-                sb.append("%20");
-            } else {
-                sb.append(s1.charAt(i));
+        for(int i=0; i<s1.length(); i++) {
+            if(s1.charAt(i) != ' ') {
+                intArray[s1.charAt(i)] = intArray[s1.charAt(i)] + 1;
             }
         }
         
-        return sb.toString();
+        for(int i=0; i<s1.length(); i++) {
+            if(intArray[s1.charAt(i)]%2 == 1) {
+                count++;
+                if(count > 1) { return false; }
+            }
+        }
+        
+        return true;
     }
         
     
   public static void main(String[] args) {
-      String s1 = "rat poison is ew ";
-      String s2 = "ttar";
-      System.out.println(add20(s1, 13));
+      String s1 = "tactcoapaapa";
+      String s2 = "taco cat";
+      System.out.println(isPerm(s2));
   }
 }
